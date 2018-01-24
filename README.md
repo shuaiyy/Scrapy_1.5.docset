@@ -7,7 +7,7 @@
 将添加到您的docset中
 
 网址（离线文档）
-https://raw.githubusercontent.com/famalgosner/ros.org.docset/master/ROS.xml
+https://raw.githubusercontent.com/shuaiyy/Scrapy_1.5.docset/master/scrapy.xml
 
 ### Zeal
 
