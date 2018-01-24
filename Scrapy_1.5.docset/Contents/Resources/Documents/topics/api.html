@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Core API — Scrapy  documentation</title>
+<link href="../_static/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="../index.html" rel="top" title="Scrapy  documentation"/>
+<link href="signals.html" rel="next" title="Signals"/>
+<link href="extensions.html" rel="prev" title="Extensions"/>
+<script src="../_static/js/modernizr.min.js"></script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../index.html"> Scrapy
+          
+
+          
+          </a>
+<div role="search">
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" type="text"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">First steps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Scrapy at a glance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/install.html">Installation guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/tutorial.html">Scrapy Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/examples.html">Examples</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Basic concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Command line tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spiders.html">Spiders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selectors.html">Selectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="items.html">Items</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loaders.html">Item Loaders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">Scrapy shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="item-pipeline.html">Item Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feed-exports.html">Feed exports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request-response.html">Requests and Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link-extractors.html">Link Extractors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Built-in services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Stats Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.html">Sending e-mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="telnetconsole.html">Telnet Console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webservice.html">Web Service</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Solving specific problems</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debugging Spiders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contracts.html">Spiders Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practices.html">Common Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="broad-crawls.html">Broad Crawls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firefox.html">Using Firefox for scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firebug.html">Using Firebug for scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leaks.html">Debugging memory leaks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="media-pipeline.html">Downloading and processing files and images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Spiders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autothrottle.html">AutoThrottle extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarking.html">Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs: pausing and resuming crawls</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending Scrapy</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloader-middleware.html">Downloader Middleware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spider-middleware.html">Spider Middleware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Core API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#crawler-api">Crawler API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scrapy.settings">Settings API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scrapy.loader">SpiderLoader API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#signals-api">Signals API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stats-collector-api">Stats Collector API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exporters.html">Item Exporters</a></li>
+</ul>
+<p class="caption"><span class="caption-text">All the rest</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Scrapy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versioning.html">Versioning and API Stability</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../index.html">Scrapy</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../index.html">Docs</a> »</li>
+<li>Core API</li>
+<li class="wy-breadcrumbs-aside">
+<a href="../_sources/topics/api.rst.txt" rel="nofollow"> View page source</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div itemprop="articleBody">
+<div class="section" id="core-api"><a name="//apple_ref/cpp/Module/scrapy.crawler"></a>
+<span id="topics-api"></span><h1>Core API<a class="headerlink" href="#core-api" title="Permalink to this headline">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.15.</span></p>
+</div>
+<p>This section documents the Scrapy core API, and it’s intended for developers of
+extensions and middlewares.</p>
+<div class="section" id="crawler-api">
+<span id="topics-api-crawler"></span><h2>Crawler API<a class="headerlink" href="#crawler-api" title="Permalink to this headline">¶</a></h2>
+<p>The main entry point to Scrapy API is the <a class="reference internal" href="#scrapy.crawler.Crawler" title="scrapy.crawler.Crawler"><code class="xref py py-class docutils literal"><span class="pre">Crawler</span></code></a>
+object, passed to extensions through the <code class="docutils literal"><span class="pre">from_crawler</span></code> class method. This
+object provides access to all Scrapy core components, and it’s the only way for
+extensions to access them and hook their functionality into Scrapy.</p>
+<span class="target" id="module-scrapy.crawler"></span><p>The Extension Manager is responsible for loading and keeping track of installed
+extensions and it’s configured through the <a class="reference internal" href="settings.html#std:setting-EXTENSIONS"><code class="xref std std-setting docutils literal"><span class="pre">EXTENSIONS</span></code></a> setting which
+contains a dictionary of all available extensions and their order similar to
+how you <a class="reference internal" href="downloader-middleware.html#topics-downloader-middleware-setting"><span class="std std-ref">configure the downloader middlewares</span></a>.</p>
+<dl class="class">
+<dt id="scrapy.crawler.Crawler"><a name="//apple_ref/cpp/Class/scrapy.crawler.Crawler"></a>
+<em class="property">class </em><code class="descclassname">scrapy.crawler.</code><code class="descname">Crawler</code><span class="sig-paren">(</span><em>spidercls</em>, <em>settings</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.crawler.Crawler" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Crawler object must be instantiated with a
+<a class="reference internal" href="spiders.html#scrapy.spiders.Spider" title="scrapy.spiders.Spider"><code class="xref py py-class docutils literal"><span class="pre">scrapy.spiders.Spider</span></code></a> subclass and a
+<code class="xref py py-class docutils literal"><span class="pre">scrapy.settings.Settings</span></code> object.</p>
+<dl class="attribute">
+<dt id="scrapy.crawler.Crawler.settings"><a name="//apple_ref/cpp/Attribute/scrapy.crawler.Crawler.settings"></a>
+<code class="descname">settings</code><a class="headerlink" href="#scrapy.crawler.Crawler.settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>The settings manager of this crawler.</p>
+<p>This is used by extensions &amp; middlewares to access the Scrapy settings
+of this crawler.</p>
+<p>For an introduction on Scrapy settings see <a class="reference internal" href="settings.html#topics-settings"><span class="std std-ref">Settings</span></a>.</p>
+<p>For the API see <code class="xref py py-class docutils literal"><span class="pre">Settings</span></code> class.</p>
+</dd></dl>
+<dl class="attribute">
+<dt id="scrapy.crawler.Crawler.signals"><a name="//apple_ref/cpp/Attribute/scrapy.crawler.Crawler.signals"></a>
+<code class="descname">signals</code><a class="headerlink" href="#scrapy.crawler.Crawler.signals" title="Permalink to this definition">¶</a></dt>
+<dd><p>The signals manager of this crawler.</p>
+<p>This is used by extensions &amp; middlewares to hook themselves into Scrapy
+functionality.</p>
+<p>For an introduction on signals see <a class="reference internal" href="signals.html#topics-signals"><span class="std std-ref">Signals</span></a>.</p>
+<p>For the API see <code class="xref py py-class docutils literal"><span class="pre">SignalManager</span></code> class.</p>
+</dd></dl>
+<dl class="attribute">
+<dt id="scrapy.crawler.Crawler.stats"><a name="//apple_ref/cpp/Attribute/scrapy.crawler.Crawler.stats"></a>
+<code class="descname">stats</code><a class="headerlink" href="#scrapy.crawler.Crawler.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>The stats collector of this crawler.</p>
+<p>This is used from extensions &amp; middlewares to record stats of their
+behaviour, or access stats collected by other extensions.</p>
+<p>For an introduction on stats collection see <a class="reference internal" href="stats.html#topics-stats"><span class="std std-ref">Stats Collection</span></a>.</p>
+<p>For the API see <a class="reference internal" href="#scrapy.statscollectors.StatsCollector" title="scrapy.statscollectors.StatsCollector"><code class="xref py py-class docutils literal"><span class="pre">StatsCollector</span></code></a> class.</p>
+</dd></dl>
+<dl class="attribute">
+<dt id="scrapy.crawler.Crawler.extensions"><a name="//apple_ref/cpp/Attribute/scrapy.crawler.Crawler.extensions"></a>
+<code class="descname">extensions</code><a class="headerlink" href="#scrapy.crawler.Crawler.extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The extension manager that keeps track of enabled extensions.</p>
+<p>Most extensions won’t need to access this attribute.</p>
+<p>For an introduction on extensions and a list of available extensions on
+Scrapy see <a class="reference internal" href="extensions.html#topics-extensions"><span class="std std-ref">Extensions</span></a>.</p>
+</dd></dl>
+<dl class="attribute">
+<dt id="scrapy.crawler.Crawler.engine"><a name="//apple_ref/cpp/Attribute/scrapy.crawler.Crawler.engine"></a>
+<code class="descname">engine</code><a class="headerlink" href="#scrapy.crawler.Crawler.engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>The execution engine, which coordinates the core crawling logic
+between the scheduler, downloader and spiders.</p>
+<p>Some extension may want to access the Scrapy engine, to inspect  or
+modify the downloader and scheduler behaviour, although this is an
+advanced use and this API is not yet stable.</p>
+</dd></dl>
+<dl class="attribute">
+<dt id="scrapy.crawler.Crawler.spider"><a name="//apple_ref/cpp/Attribute/scrapy.crawler.Crawler.spider"></a>
+<code class="descname">spider</code><a class="headerlink" href="#scrapy.crawler.Crawler.spider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spider currently being crawled. This is an instance of the spider class
+provided while constructing the crawler, and it is created after the
+arguments given in the <a class="reference internal" href="#scrapy.crawler.Crawler.crawl" title="scrapy.crawler.Crawler.crawl"><code class="xref py py-meth docutils literal"><span class="pre">crawl()</span></code></a> method.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.crawler.Crawler.crawl"><a name="//apple_ref/cpp/Method/scrapy.crawler.Crawler.crawl"></a>
+<code class="descname">crawl</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.crawler.Crawler.crawl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the crawler by instantiating its spider class with the given
+<cite>args</cite> and <cite>kwargs</cite> arguments, while setting the execution engine in
+motion.</p>
+<p>Returns a deferred that is fired when the crawl is finished.</p>
+</dd></dl>
+</dd></dl>
+</div>
+<div class="section" id="module-scrapy.settings">
+<span id="settings-api"></span><span id="topics-api-settings"></span><h2><a name="//apple_ref/cpp/Module/scrapy.settings"></a>Settings API<a class="headerlink" href="#module-scrapy.settings" title="Permalink to this headline">¶</a></h2>
+<dl class="attribute">
+<dt id="scrapy.settings.SETTINGS_PRIORITIES"><a name="//apple_ref/cpp/Attribute/scrapy.settings.SETTINGS_PRIORITIES"></a>
+<code class="descclassname">scrapy.settings.</code><code class="descname">SETTINGS_PRIORITIES</code><a class="headerlink" href="#scrapy.settings.SETTINGS_PRIORITIES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary that sets the key name and priority level of the default
+settings priorities used in Scrapy.</p>
+<p>Each item defines a settings entry point, giving it a code name for
+identification and an integer priority. Greater priorities take more
+precedence over lesser ones when setting and retrieving values in the
+<code class="xref py py-class docutils literal"><span class="pre">Settings</span></code> class.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">SETTINGS_PRIORITIES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'default'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">'command'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">'project'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s1">'spider'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s1">'cmdline'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For a detailed explanation on each settings sources, see:
+<a class="reference internal" href="settings.html#topics-settings"><span class="std std-ref">Settings</span></a>.</p>
+</dd></dl>
+</div>
+<div class="section" id="module-scrapy.loader">
+<span id="spiderloader-api"></span><span id="topics-api-spiderloader"></span><h2>SpiderLoader API<a class="headerlink" href="#module-scrapy.loader" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="scrapy.loader.SpiderLoader"><a name="//apple_ref/cpp/Class/scrapy.loader.SpiderLoader"></a>
+<em class="property">class </em><code class="descclassname">scrapy.loader.</code><code class="descname">SpiderLoader</code><a class="headerlink" href="#scrapy.loader.SpiderLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is in charge of retrieving and handling the spider classes
+defined across the project.</p>
+<p>Custom spider loaders can be employed by specifying their path in the
+<a class="reference internal" href="settings.html#std:setting-SPIDER_LOADER_CLASS"><code class="xref std std-setting docutils literal"><span class="pre">SPIDER_LOADER_CLASS</span></code></a> project setting. They must fully implement
+the <code class="xref py py-class docutils literal"><span class="pre">scrapy.interfaces.ISpiderLoader</span></code> interface to guarantee an
+errorless execution.</p>
+<dl class="method">
+<dt id="scrapy.loader.SpiderLoader.from_settings"><a name="//apple_ref/cpp/Method/scrapy.loader.SpiderLoader.from_settings"></a>
+<code class="descname">from_settings</code><span class="sig-paren">(</span><em>settings</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.loader.SpiderLoader.from_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class method is used by Scrapy to create an instance of the class.
+It’s called with the current project settings, and it loads the spiders
+found recursively in the modules of the <a class="reference internal" href="settings.html#std:setting-SPIDER_MODULES"><code class="xref std std-setting docutils literal"><span class="pre">SPIDER_MODULES</span></code></a>
+setting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name"/>
+<col class="field-body"/>
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>settings</strong> (<code class="xref py py-class docutils literal"><span class="pre">Settings</span></code> instance) – project settings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.loader.SpiderLoader.load"><a name="//apple_ref/cpp/Method/scrapy.loader.SpiderLoader.load"></a>
+<code class="descname">load</code><span class="sig-paren">(</span><em>spider_name</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.loader.SpiderLoader.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Spider class with the given name. It’ll look into the previously
+loaded spiders for a spider class with name <cite>spider_name</cite> and will raise
+a KeyError if not found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name"/>
+<col class="field-body"/>
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spider_name</strong> (<em>str</em>) – spider class name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.loader.SpiderLoader.list"><a name="//apple_ref/cpp/Method/scrapy.loader.SpiderLoader.list"></a>
+<code class="descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.loader.SpiderLoader.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the names of the available spiders in the project.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.loader.SpiderLoader.find_by_request"><a name="//apple_ref/cpp/Method/scrapy.loader.SpiderLoader.find_by_request"></a>
+<code class="descname">find_by_request</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.loader.SpiderLoader.find_by_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the spiders’ names that can handle the given request. Will try to
+match the request’s url against the domains of the spiders.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name"/>
+<col class="field-body"/>
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>request</strong> (<a class="reference internal" href="request-response.html#scrapy.http.Request" title="scrapy.http.Request"><code class="xref py py-class docutils literal"><span class="pre">Request</span></code></a> instance) – queried request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</dd></dl>
+</div>
+<div class="section" id="signals-api">
+<span id="topics-api-signals"></span><h2>Signals API<a class="headerlink" href="#signals-api" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="stats-collector-api">
+<span id="topics-api-stats"></span><h2>Stats Collector API<a class="headerlink" href="#stats-collector-api" title="Permalink to this headline">¶</a></h2>
+<p>There are several Stats Collectors available under the
+<a class="reference internal" href="stats.html#module-scrapy.statscollectors" title="scrapy.statscollectors: Stats Collectors"><code class="xref py py-mod docutils literal"><span class="pre">scrapy.statscollectors</span></code></a> module and they all implement the Stats
+Collector API defined by the <a class="reference internal" href="#scrapy.statscollectors.StatsCollector" title="scrapy.statscollectors.StatsCollector"><code class="xref py py-class docutils literal"><span class="pre">StatsCollector</span></code></a>
+class (which they all inherit from).</p>
+<span class="target" id="module-scrapy.statscollectors"></span><dl class="class">
+<dt id="scrapy.statscollectors.StatsCollector"><a name="//apple_ref/cpp/Class/scrapy.statscollectors.StatsCollector"></a>
+<em class="property">class </em><code class="descclassname">scrapy.statscollectors.</code><code class="descname">StatsCollector</code><a class="headerlink" href="#scrapy.statscollectors.StatsCollector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.get_value"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.get_value"></a>
+<code class="descname">get_value</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.get_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for the given stats key or default if it doesn’t exist.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.get_stats"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.get_stats"></a>
+<code class="descname">get_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.get_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all stats from the currently running spider as a dict.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.set_value"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.set_value"></a>
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.set_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given value for the given stats key.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.set_stats"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.set_stats"></a>
+<code class="descname">set_stats</code><span class="sig-paren">(</span><em>stats</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.set_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the current stats with the dict passed in <code class="docutils literal"><span class="pre">stats</span></code> argument.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.inc_value"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.inc_value"></a>
+<code class="descname">inc_value</code><span class="sig-paren">(</span><em>key</em>, <em>count=1</em>, <em>start=0</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.inc_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increment the value of the given stats key, by the given count,
+assuming the start value given (when it’s not set).</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.max_value"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.max_value"></a>
+<code class="descname">max_value</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.max_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given value for the given key only if current value for the
+same key is lower than value. If there is no current value for the
+given key, the value is always set.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.min_value"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.min_value"></a>
+<code class="descname">min_value</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.min_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given value for the given key only if current value for the
+same key is greater than value. If there is no current value for the
+given key, the value is always set.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.clear_stats"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.clear_stats"></a>
+<code class="descname">clear_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.clear_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all stats.</p>
+</dd></dl>
+<p>The following methods are not part of the stats collection api but instead
+used when implementing custom stats collectors:</p>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.open_spider"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.open_spider"></a>
+<code class="descname">open_spider</code><span class="sig-paren">(</span><em>spider</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.open_spider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the given spider for stats collection.</p>
+</dd></dl>
+<dl class="method">
+<dt id="scrapy.statscollectors.StatsCollector.close_spider"><a name="//apple_ref/cpp/Method/scrapy.statscollectors.StatsCollector.close_spider"></a>
+<code class="descname">close_spider</code><span class="sig-paren">(</span><em>spider</em><span class="sig-paren">)</span><a class="headerlink" href="#scrapy.statscollectors.StatsCollector.close_spider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the given spider. After this is called, no more specific stats
+can be accessed or collected.</p>
+</dd></dl>
+</dd></dl>
+</div>
+</div>
+</div>
+<div class="articleComments">
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a accesskey="n" class="btn btn-neutral float-right" href="signals.html" rel="next" title="Signals">Next <span class="fa fa-arrow-circle-right"></span></a>
+<a accesskey="p" class="btn btn-neutral" href="extensions.html" rel="prev" title="Extensions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<p>
+        © Copyright 2008-2016, Scrapy developers.
+      Last updated on Jan 24, 2018.
+
+    </p>
+</div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+</div>
+</div>
+</section>
+</div>
+<script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/js/theme.js" type="text/javascript"></script>
+<script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("8UDQfnf3cyFSTsM4YANnW5sXmgZVILbA");
+analytics.page();
+}}();
+
+analytics.ready(function () {
+    ga('require', 'linker');
+    ga('linker:autoLink', ['scrapinghub.com', 'crawlera.com']);
+});
+</script>
+</body>
+</html>
